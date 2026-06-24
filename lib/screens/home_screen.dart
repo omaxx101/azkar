@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('የጠዋት እና ምሽት አዝካር'),
+        title: const Text('አዝካር'),
         centerTitle: true,
       ),
 
@@ -19,9 +19,9 @@ class HomeScreen extends StatelessWidget {
           children: [
             _buildCard(
               context,
-              title: 'Morning Azkar',
+              title: 'Morning Azkar የጠዋት አዝካር',
               icon: Icons.wb_sunny,
-              color: Colors.green,
+              color: Colors.yellow,
               onTap: () {
                 Navigator.push(
                   context,
@@ -36,9 +36,23 @@ class HomeScreen extends StatelessWidget {
 
             _buildCard(
               context,
-              title: 'Evening Azkar',
-              icon: Icons.nightlight_round,
-              color: Colors.indigo,
+              title: 'Evening Azkar የምሽት አዝካር',
+              icon: Icons.nights_stay,
+              color: Colors.purple,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const EveningAzkarScreen(),
+                  ),
+                );
+              },
+            ),
+            _buildCard(
+              context,
+              title: ' Dua ዱአ',
+              icon: Icons.mosque,
+              color: Colors.white,
               onTap: () {
                 Navigator.push(
                   context,
@@ -66,7 +80,7 @@ class HomeScreen extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: double.infinity,
-        height: 140,
+        height: 200,
         decoration: BoxDecoration(
           color: color.withOpacity(0.12),
           borderRadius: BorderRadius.circular(16),
@@ -75,7 +89,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 40, color: color),
+            Icon(icon, size: 60, color: color),
             const SizedBox(height: 12),
             Text(
               title,

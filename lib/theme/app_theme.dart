@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const Color darkGreen = Color(0xFF0D3B2E);
-  static const Color deepGreen = Color(0xFF134E3B);
+  static const Color darkGreen = Color.fromARGB(135, 0, 0, 0);
+  static const Color deepGreen = Color.fromARGB(255, 0, 0, 0);
   static const Color gold = Color(0xFFC9A227);
   static const Color goldSoft = Color(0xFFE0C46C);
   static const Color surface = Color(0xFF12382D);

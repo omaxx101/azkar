@@ -7,7 +7,7 @@ class MorningAzkarScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Morning Azkar"),
+        title: const Text("Morning Azkar የጠዋት አዝካር"),
         leading: IconButton(
           icon: const Icon(Icons.home),
           onPressed: () {
