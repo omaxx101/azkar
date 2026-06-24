@@ -49,13 +49,13 @@ class NotificationService {
         ?.requestNotificationsPermission();
 
     await _plugin
-        .resolvePlatformSpecificImplementation<
-            DarwinFlutterLocalNotificationsPlugin>()
-        ?.requestPermissions(
-          alert: true,
-          badge: true,
-          sound: true,
-        );
+    .resolvePlatformSpecificImplementation<
+        IOSFlutterLocalNotificationsPlugin>()
+    ?.requestPermissions(
+      alert: true,
+      badge: true,
+      sound: true,
+    );
   }
 
   Future<void> scheduleDailyMorningReminder({
@@ -103,15 +103,13 @@ class NotificationService {
     );
 
     await _plugin.zonedSchedule(
-      1001,
-      'Morning Adhkar',
-      'It is time for your daily morning adhkar recitation.',
-      scheduled,
-      notificationDetails,
-      androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
-      uiLocalNotificationDateInterpretation:
-          UILocalNotificationDateInterpretation.absoluteTime,
-      matchDateTimeComponents: DateTimeComponents.time,
-    );
+  1001,
+  'Morning Adhkar',
+  'It is time for your daily morning adhkar recitation.',
+  scheduled,
+  notificationDetails,
+  androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+  matchDateTimeComponents: DateTimeComponents.time,
+);
   }
 }

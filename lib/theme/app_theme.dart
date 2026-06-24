@@ -26,7 +26,8 @@ class AppTheme {
         centerTitle: true,
         elevation: 0,
       ),
-      cardTheme: CardTheme(
+
+      cardTheme: CardThemeData(
         color: const Color(0xFF173C31),
         elevation: 0,
         shape: RoundedRectangleBorder(
@@ -35,6 +36,7 @@ class AppTheme {
         ),
         margin: EdgeInsets.zero,
       ),
+
       progressIndicatorTheme: const ProgressIndicatorThemeData(
         color: gold,
         linearTrackColor: Color(0x334F7C5F),
