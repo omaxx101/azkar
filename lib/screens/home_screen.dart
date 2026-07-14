@@ -1,3 +1,4 @@
+import 'package:azkar/screens/dua.dart';
 import 'package:flutter/material.dart';
 import 'morning.dart';
 import 'evening.dart';
@@ -57,7 +58,7 @@ class HomeScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => const EveningAzkarScreen(),
+                    builder: (_) => const DuaScreen(),
                   ),
                 );
               },

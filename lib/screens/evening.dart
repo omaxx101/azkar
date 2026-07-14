@@ -29,7 +29,7 @@ class EveningAzkarScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    item.title,
+                    "الذكر ${item.number}",
                     style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -69,63 +69,154 @@ class EveningAzkarScreen extends StatelessWidget {
 }
 
 class AzkarItem {
-  final String title;
+  final int number;
   final String arabic;
   final String english;
   final String amharic;
   final int count;
 
   AzkarItem({
-    required this.title,
+    required this.number,
     required this.arabic,
     required this.english,
     required this.amharic,
     required this.count,
   });
 }
-
 final List<AzkarItem> eveningAzkar = [
+
   AzkarItem(
-    title: "Ayat Al-Kursi",
-    arabic: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ...",
-    english: "Allah! There is no god but He, the Ever-Living...",
-    amharic: "አላህ ከእርሱ በቀር አምላክ የለም፣ ሕያው ዘላለማዊ...",
+    number: 1,
+    arabic:
+        "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ",
+    english: "Ayat Al-Kursi",
+    amharic: "አያት አል-ኩርሲ",
     count: 1,
   ),
+
   AzkarItem(
-    title: "Surah Al-Ikhlas",
-    arabic: "قُلْ هُوَ اللَّهُ أَحَدٌ...",
-    english: "Say: He is Allah, One...",
-    amharic: "አላህ አንድ ነው በሉ...",
+    number: 2,
+    arabic:
+        "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ قُلْ هُوَ اللَّهُ أَحَدٌ اللَّهُ الصَّمَدُ لَمْ يَلِدْ وَلَمْ يُولَدْ وَلَمْ يَكُن لَهُ كُفُوًا أَحَدٌ",
+    english: "Surah Al-Ikhlas",
+    amharic: "እክላስ",
     count: 3,
   ),
+
   AzkarItem(
-    title: "Surah Al-Falaq",
-    arabic: "قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ...",
-    english: "Say: I seek refuge in the Lord of daybreak...",
-    amharic: "በጥላ ጌታ እጠብቃለሁ በሉ...",
+    number: 3,
+    arabic:
+        "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ مِن شَرِّ مَا خَلَقَ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ",
+    english: "Surah Al-Falaq",
+    amharic: "ፈለቅ",
     count: 3,
   ),
+
   AzkarItem(
-    title: "Surah An-Nas",
-    arabic: "قُلْ أَعُوذُ بِرَبِّ النَّاسِ...",
-    english: "Say: I seek refuge in the Lord of mankind...",
-    amharic: "የሰዎች ጌታ እጠብቃለሁ በሉ...",
+    number: 4,
+    arabic:
+        "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ قُلْ أَعُوذُ بِرَبِّ النَّاسِ مَلِكِ النَّاسِ إِلَٰهِ النَّاسِ مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ مِنَ الْجِنَّةِ وَالنَّاسِ",
+    english: "Surah An-Nas",
+    amharic: "ናስ",
     count: 3,
   ),
+
   AzkarItem(
-    title: "Evening Protection",
-    arabic: "أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ...",
-    english: "We have reached the evening and all dominion belongs to Allah...",
-    amharic: "ምሽት ደርሰናል መንግሥት ሁሉ የአላህ ነው...",
+    number: 5,
+    arabic:
+        "أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+    english: "We reached the evening and dominion belongs to Allah",
+    amharic: "ምሽት ደርሰናል",
     count: 1,
   ),
+
   AzkarItem(
-    title: "Sayyid al-Istighfar",
-    arabic: "اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَٰهَ إِلَّا أَنْتَ...",
-    english:
-        "O Allah, You are my Lord, none has the right to be worshipped except You...",
-    amharic: "አላህ ሆይ አንተ ጌታዬ ነህ...",
+    number: 6,
+    arabic:
+        "اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَٰهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ",
+    english: "Sayyid Al-Istighfar",
+    amharic: "የምርጥ ኢስቲግፋር",
     count: 1,
+  ),
+
+  AzkarItem(
+    number: 7,
+    arabic:
+        "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ وَالْعَجْزِ وَالْكَسَلِ وَالْبُخْلِ وَالْجُبْنِ وَغَلَبَةِ الدَّيْنِ",
+    english: "Protection from anxiety and debt",
+    amharic: "ከጭንቀት መጠበቂያ",
+    count: 1,
+  ),
+
+  AzkarItem(
+    number: 8,
+    arabic:
+        "يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ أَصْلِحْ لِي شَأْنِي كُلَّهُ",
+    english: "Entrust all matters to Allah",
+    amharic: "አላህን መመኪያ",
+    count: 1,
+  ),
+
+  AzkarItem(
+    number: 9,
+    arabic:
+        "حَسْبِيَ اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ",
+    english: "Hasbiyallahu",
+    amharic: "አላህ በቂኝ ነው",
+    count: 7,
+  ),
+
+  AzkarItem(
+    number: 10,
+    arabic:
+        "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",
+    english: "SubhanAllah",
+    amharic: "ሱብሓነላህ",
+    count: 100,
+  ),
+
+  AzkarItem(
+    number: 11,
+    arabic:
+        "لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ",
+    english: "Tawheed dhikr",
+    amharic: "ተውሒድ",
+    count: 100,
+  ),
+
+  AzkarItem(
+    number: 12,
+    arabic:
+        "سُبْحَانَ اللَّهِ، الْحَمْدُ لِلَّهِ، اللَّهُ أَكْبَرُ",
+    english: "Tasbih Tahmid Takbir",
+    amharic: "ዚክር",
+    count: 100,
+  ),
+
+  AzkarItem(
+    number: 13,
+    arabic:
+        "أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ",
+    english: "Istighfar",
+    amharic: "ኢስቲግፋር",
+    count: 100,
+  ),
+
+  AzkarItem(
+    number: 14,
+    arabic:
+        "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ",
+    english: "Salawat",
+    amharic: "ሰላት አለንቢ",
+    count: 10,
+  ),
+
+  AzkarItem(
+    number: 15,
+    arabic:
+        "أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ",
+    english: "Protection from all evil",
+    amharic: "ከክፉ መጠበቂያ",
+    count: 3,
   ),
 ];
