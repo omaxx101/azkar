@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 import 'theme/app_theme.dart';
 import 'screens/home_screen.dart';
 
@@ -10,9 +11,23 @@ class AzkarApp extends StatelessWidget {
     return MaterialApp(
       title: 'Azkar',
       debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.dark,
       theme: AppTheme.darkTheme,
       home: const HomeScreen(),
+      scrollBehavior: const _AzkarScrollBehavior(),
     );
   }
 }
 
+class _AzkarScrollBehavior extends MaterialScrollBehavior {
+  const _AzkarScrollBehavior();
+
+  @override
+  Set<PointerDeviceKind> get dragDevices => const {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.stylus,
+        PointerDeviceKind.invertedStylus,
+        PointerDeviceKind.unknown,
+      };
+}

@@ -1,65 +1,28 @@
 import 'package:flutter/material.dart';
+import '../widgets/azkar_ui.dart';
 
 class DuaScreen extends StatelessWidget {
   const DuaScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Dua"),
-        leading: IconButton(
-          icon: const Icon(Icons.home),
-          onPressed: () {
-            Navigator.popUntil(context, (route) => route.isFirst);
-          },
-        ),
-      ),
-      body: ListView.builder(
-        padding: const EdgeInsets.all(12),
-        itemCount: duas.length,
-        itemBuilder: (context, index) {
-          final item = duas[index];
-
-          return Card(
-            margin: const EdgeInsets.only(bottom: 12),
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "الدعاء ${item.number}",
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-
-                  const SizedBox(height: 10),
-
-                  Text(
-                    item.arabic,
-                    textDirection: TextDirection.rtl,
-                    style: const TextStyle(fontSize: 18),
-                  ),
-
-                  const SizedBox(height: 10),
-                  Text(item.english),
-                  const SizedBox(height: 5),
-                  Text(
-                    item.amharic,
-                    style: const TextStyle(fontWeight: FontWeight.w500),
-                  ),
-
-                  const SizedBox(height: 10),
-                  Text("Repeat: ${item.count} times"),
-                ],
-              ),
-            ),
-          );
-        },
-      ),
+    return AzkarPageScaffold(
+      title: 'Dua',
+      subtitle: 'A more balanced layout for short entries and long recitations.',
+      accentColor: const Color(0xFF8AD8B5),
+      onHomePressed: () => Navigator.popUntil(context, (route) => route.isFirst),
+      itemCount: duas.length,
+      itemBuilder: (context, index) {
+        final item = duas[index];
+        return AzkarContentCard(
+          indexLabel: 'الدعاء ${item.number}',
+          arabicText: item.arabic,
+          englishText: item.english,
+          amharicText: item.amharic,
+          repeatCount: item.count,
+          accentColor: const Color(0xFF8AD8B5),
+        );
+      },
     );
   }
 }

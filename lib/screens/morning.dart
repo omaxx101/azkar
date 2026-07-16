@@ -1,69 +1,28 @@
 import 'package:flutter/material.dart';
+import '../widgets/azkar_ui.dart';
 
 class MorningAzkarScreen extends StatelessWidget {
   const MorningAzkarScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Morning Azkar የጠዋት አዝካር"),
-        leading: IconButton(
-          icon: const Icon(Icons.home),
-          onPressed: () {
-            Navigator.popUntil(context, (route) => route.isFirst);
-          },
-        ),
-      ),
-      body: ListView.builder(
-        padding: const EdgeInsets.all(12),
-        itemCount: morningAzkar.length,
-        itemBuilder: (context, index) {
-          final item = morningAzkar[index];
-
-          return Card(
-            margin: const EdgeInsets.only(bottom: 12),
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "الذكر ${item.number}",
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-               
-                  const SizedBox(height: 10),
-
-                  Text(
-                    item.arabic,
-                    textDirection: TextDirection.rtl,
-                    style: const TextStyle(fontSize: 18),
-                  ),
-
-                  const SizedBox(height: 10),
-
-                  Text(item.english),
-
-                  const SizedBox(height: 5),
-
-                  Text(
-                    item.amharic,
-                    style: const TextStyle(fontWeight: FontWeight.w500),
-                  ),
-
-                  const SizedBox(height: 10),
-
-                  Text("Repeat: ${item.count} times"),
-                ],
-              ),
-            ),
-          );
-        },
-      ),
+    return AzkarPageScaffold(
+      title: 'Morning Azkar የጠዋት አዝካር',
+      subtitle: 'A cleaner, responsive morning reading layout.',
+      accentColor: const Color(0xFFF2C94C),
+      onHomePressed: () => Navigator.popUntil(context, (route) => route.isFirst),
+      itemCount: morningAzkar.length,
+      itemBuilder: (context, index) {
+        final item = morningAzkar[index];
+        return AzkarContentCard(
+          indexLabel: 'الذكر ${item.number}',
+          arabicText: item.arabic,
+          englishText: item.english,
+          amharicText: item.amharic,
+          repeatCount: item.count,
+          accentColor: const Color(0xFFF2C94C),
+        );
+      },
     );
   }
 }
@@ -119,7 +78,7 @@ final List<AzkarItem> morningAzkar = [
 
   AzkarItem(
     number: 5,
-    arabic: "اللّٰهُمَّ أَنْتَ رَبِّي لَا إِلٰهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ وَأَنَا عَلَىٰ عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ",
+    arabic:"أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلّٰهِ وَالْحَمْدُ لِلّٰهِ لَا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هٰذَا الْيَوْمِ وَخَيْرَ مَا بَعْدَهُ وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هٰذَا الْيَوْمِ وَشَرِّ مَا بَعْدَهُ رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ",
     english: "",
     amharic: "",
     count: 1,
