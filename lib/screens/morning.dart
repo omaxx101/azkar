@@ -20,7 +20,7 @@ class MorningAzkarScreen extends StatelessWidget {
           englishText: item.english,
           amharicText: item.amharic,
           repeatCount: item.count,
-          accentColor: const Color(0xFFF2C94C),
+          accentColor: const Color.fromARGB(255, 245, 195, 45),
         );
       },
     );
