@@ -55,10 +55,10 @@ class HomeScreen extends StatelessWidget {
                         delegate: SliverChildListDelegate.fixed(
                           [
                             AzkarHomeTile(
-                              title: 'Morning Azkar',
-                              subtitle: 'Start the day with a calm, readable morning collection.',
+                              title: 'Morning Azkar • የጠዋት አዝካር',
+                              subtitle: '',
                               icon: Icons.wb_sunny_rounded,
-                              accentColor: const Color(0xFFF2C94C),
+                              accentColor: Colors.yellow.shade700,
                               onTap: () {
                                 Navigator.push(
                                   context,
@@ -69,8 +69,8 @@ class HomeScreen extends StatelessWidget {
                               },
                             ),
                             AzkarHomeTile(
-                              title: 'Evening Azkar',
-                              subtitle: 'A smoother evening layout for quick reading on any screen.',
+                              title: 'Evening Azkar • የማታ አዝካር',
+                              subtitle: '',
                               icon: Icons.nights_stay_rounded,
                               accentColor: const Color(0xFF8E7BFF),
                               onTap: () {
@@ -83,8 +83,8 @@ class HomeScreen extends StatelessWidget {
                               },
                             ),
                             AzkarHomeTile(
-                              title: 'Dua',
-                              subtitle: 'Accessible dua cards with cleaner spacing and hierarchy.',
+                              title: 'Dua • ዱዓ',
+                              subtitle: '',
                               icon: Icons.mosque_rounded,
                               accentColor: const Color(0xFF8AD8B5),
                               onTap: () {
@@ -128,7 +128,9 @@ class _HomeHero extends StatelessWidget {
             const Color(0xFF10251F).withOpacity(0.92),
           ],
         ),
-        border: Border.all(color: Colors.white.withOpacity(0.08)),
+        border: Border.all(
+          color: Colors.white.withOpacity(0.08),
+        ),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.22),
@@ -140,34 +142,12 @@ class _HomeHero extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-            decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.08),
-              borderRadius: BorderRadius.circular(999),
-            ),
-            child: Text(
-              'Daily remembrance, polished for launch',
-              style: theme.textTheme.labelLarge?.copyWith(
-                color: Colors.white.withOpacity(0.9),
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-          const SizedBox(height: 16),
           Text(
-            'Azkar',
+            'Azkar & Dua • አዝካር  እና ዱዓ',
             style: theme.textTheme.displaySmall?.copyWith(
-              fontWeight: FontWeight.w800,
-              height: 1.0,
-            ),
-          ),
-          const SizedBox(height: 10),
-          Text(
-            'A responsive reading experience for morning azkar, evening azkar, and dua. The layout now scales better on small phones, large phones, tablets, and web.',
-            style: theme.textTheme.bodyLarge?.copyWith(
-              color: Colors.white.withOpacity(0.78),
-              height: 1.5,
+              fontWeight: FontWeight.w500,
+              fontSize:25 ,
+              height:1,
             ),
           ),
         ],

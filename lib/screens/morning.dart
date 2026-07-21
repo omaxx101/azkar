@@ -8,7 +8,7 @@ class MorningAzkarScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AzkarPageScaffold(
       title: 'Morning Azkar የጠዋት አዝካር',
-      subtitle: 'A cleaner, responsive morning reading layout.',
+      subtitle: '',
       accentColor: const Color(0xFFF2C94C),
       onHomePressed: () => Navigator.popUntil(context, (route) => route.isFirst),
       itemCount: morningAzkar.length,

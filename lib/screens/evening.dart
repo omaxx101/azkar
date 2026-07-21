@@ -8,7 +8,7 @@ class EveningAzkarScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AzkarPageScaffold(
       title: 'Evening Azkar ምሽት አዝካር',
-      subtitle: 'Consistent spacing and better readability across devices.',
+      subtitle: '',
       accentColor: const Color(0xFF8E7BFF),
       onHomePressed: () => Navigator.popUntil(context, (route) => route.isFirst),
       itemCount: eveningAzkar.length,
