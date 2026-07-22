@@ -26,7 +26,7 @@ class _EveningAzkarScreenState extends State<EveningAzkarScreen> {
       onHomePressed: () => Navigator.popUntil(context, (route) => route.isFirst),
       onPlayAudioPressed: () async {
         try {
-          await _audioPlayer.play(AssetSource('audio/MorningAzkar.m4a'));
+          await _audioPlayer.play(AssetSource('audio/morning_azkar.mp3'));
           print("Audio started");
         } catch (e) {
           print("Audio error: $e");

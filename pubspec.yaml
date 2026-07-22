@@ -36,5 +36,5 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/audio/MorningAzkar.m4a
+    - assets/audio/morning_azkar.mp3
     - assets/icons/azkar.png
