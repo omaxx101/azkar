@@ -8,7 +8,7 @@ class DuaScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AzkarPageScaffold(
       title: 'Dua',
-      subtitle: 'A more balanced layout for short entries and long recitations.',
+      subtitle: '',
       accentColor: const Color(0xFF8AD8B5),
       onHomePressed: () => Navigator.popUntil(context, (route) => route.isFirst),
       itemCount: duas.length,

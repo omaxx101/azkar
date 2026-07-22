@@ -9,6 +9,7 @@ class AzkarPageScaffold extends StatelessWidget {
     required this.itemCount,
     required this.itemBuilder,
     this.onHomePressed,
+    this.onPlayAudioPressed,
   });
 
   final String title;
@@ -16,8 +17,10 @@ class AzkarPageScaffold extends StatelessWidget {
   final Color accentColor;
   final int itemCount;
   final IndexedWidgetBuilder itemBuilder;
-  final VoidCallback? onHomePressed;
 
+  final VoidCallback? onHomePressed;
+  final VoidCallback? onPlayAudioPressed;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -112,6 +115,7 @@ class AzkarContentCard extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Card(
+      color: Colors.black,
       child: Padding(
         padding: const EdgeInsets.all(18),
         child: Column(
@@ -293,76 +297,66 @@ class _PageHeader extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.onHomePressed,
+    this.onPlayAudioPressed,
   });
-
 
   final String title;
   final String subtitle;
   final VoidCallback? onHomePressed;
-
+  final VoidCallback? onPlayAudioPressed;
 
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
 
-    final theme=Theme.of(context);
-
+    final theme = Theme.of(context);
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
 
-      crossAxisAlignment:CrossAxisAlignment.start,
-
-      children:[
-
+      children: [
 
         Row(
-
-          children:[
-
+          children: [
 
             IconButton(
+              onPressed: onHomePressed ??
+                  () => Navigator.maybePop(context),
 
-              onPressed:onHomePressed ??
-                  ()=>Navigator.maybePop(context),
-
-              icon:const Icon(
+              icon: const Icon(
                 Icons.arrow_back_rounded,
               ),
-
             ),
-
 
             Expanded(
-
-              child:Text(
-
+              child: Text(
                 title,
-
-                style:theme.textTheme.titleLarge?.copyWith(
-                  fontWeight:FontWeight.w800,
+                style: theme.textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.w800,
+                  fontSize: 20,
                 ),
-
               ),
-
             ),
 
+            IconButton(
+              onPressed: onPlayAudioPressed,
+              icon: const Icon(
+                Icons.play_circle_fill_sharp,
+              ),
+            ),
 
           ],
         ),
 
-
         Text(
-
           subtitle,
-
-          style:theme.textTheme.bodyMedium?.copyWith(
-            color:Colors.white70,
+          style: theme.textTheme.bodyMedium?.copyWith(
+            color: Colors.white70,
           ),
-
         ),
 
       ],
     );
-
   }
 }
+ 
