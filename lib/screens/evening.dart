@@ -1,37 +1,19 @@
 import 'package:flutter/material.dart';
-import '../widgets/azkar_ui.dart';
-import 'package:audioplayers/audioplayers.dart';
 
-class EveningAzkarScreen extends StatefulWidget {
+import '../widgets/azkar_ui.dart';
+
+class EveningAzkarScreen extends StatelessWidget {
   const EveningAzkarScreen({super.key});
 
-  @override
-  State<EveningAzkarScreen> createState() => _EveningAzkarScreenState();
-}
-
-class _EveningAzkarScreenState extends State<EveningAzkarScreen> {
-  final AudioPlayer _audioPlayer = AudioPlayer();
-
-  @override
-  void dispose() {
-    _audioPlayer.dispose();
-    super.dispose();
-  }
   @override
   Widget build(BuildContext context) {
     return AzkarPageScaffold(
       title: 'Evening Azkar ምሽት አዝካር',
       subtitle: '',
       accentColor: const Color(0xFF8E7BFF),
-      onHomePressed: () => Navigator.popUntil(context, (route) => route.isFirst),
-      onPlayAudioPressed: () async {
-        try {
-          await _audioPlayer.play(AssetSource('audio/morning_azkar.mp3'));
-          print("Audio started");
-        } catch (e) {
-          print("Audio error: $e");
-        }
-      },
+      onHomePressed: () =>
+          Navigator.popUntil(context, (route) => route.isFirst),
+      audioAssetPath: 'assets/audio/morning_azkar.mp3',
       itemCount: eveningAzkar.length,
       itemBuilder: (context, index) {
         final item = eveningAzkar[index];
