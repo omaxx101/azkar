@@ -83,9 +83,9 @@ class HomeScreen extends StatelessWidget {
         width: double.infinity,
         height: 200,
         decoration: BoxDecoration(
-          color: color.withOpacity(0.12),
+          color: color.withValues(alpha: 0.12),
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: color.withOpacity(0.4)),
+          border: Border.all(color: color.withValues(alpha: 0.4)),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

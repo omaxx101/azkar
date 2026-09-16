@@ -32,7 +32,7 @@ class AppTheme {
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24),
-          side: BorderSide(color: gold.withOpacity(0.18)),
+          side: BorderSide(color: gold.withValues(alpha: 0.18)),
         ),
         margin: EdgeInsets.zero,
       ),
@@ -45,7 +45,7 @@ class AppTheme {
         bodyColor: Colors.white,
         displayColor: Colors.white,
       ),
-      dividerTheme: DividerThemeData(color: Colors.white.withOpacity(0.08)),
+      dividerTheme: DividerThemeData(color: Colors.white.withValues(alpha: 0.08)),
       iconTheme: const IconThemeData(color: Colors.white),
       snackBarTheme: SnackBarThemeData(
         backgroundColor: const Color(0xFF0A241D),
