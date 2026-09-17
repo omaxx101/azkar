@@ -1,69 +1,31 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/azkar_ui.dart';
+
 class EveningAzkarScreen extends StatelessWidget {
   const EveningAzkarScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Evening Azkar ምሽት አዝካር"),
-        leading: IconButton(
-          icon: const Icon(Icons.home),
-          onPressed: () {
-            Navigator.popUntil(context, (route) => route.isFirst);
-          },
-        ),
-      ),
-      body: ListView.builder(
-        padding: const EdgeInsets.all(12),
-        itemCount: eveningAzkar.length,
-        itemBuilder: (context, index) {
-          final item = eveningAzkar[index];
-
-          return Card(
-            margin: const EdgeInsets.only(bottom: 12),
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "الذكر ${item.number}",
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-
-                  const SizedBox(height: 10),
-
-                  Text(
-                    item.arabic,
-                    textDirection: TextDirection.rtl,
-                    style: const TextStyle(fontSize: 18),
-                  ),
-
-                  const SizedBox(height: 10),
-
-                  Text(item.english),
-
-                  const SizedBox(height: 5),
-
-                  Text(
-                    item.amharic,
-                    style: const TextStyle(fontWeight: FontWeight.w500),
-                  ),
-
-                  const SizedBox(height: 10),
-
-                  Text("Repeat: ${item.count} times"),
-                ],
-              ),
-            ),
-          );
-        },
-      ),
+    return AzkarPageScaffold(
+      title: 'Evening Azkar ምሽት አዝካር',
+      subtitle: '',
+      accentColor: const Color(0xFF8E7BFF),
+      onHomePressed: () =>
+          Navigator.popUntil(context, (route) => route.isFirst),
+      audioAssetPath: 'assets/audio/morning_azkar.mp3',
+      itemCount: eveningAzkar.length,
+      itemBuilder: (context, index) {
+        final item = eveningAzkar[index];
+        return AzkarContentCard(
+          indexLabel: 'الذكر ${item.number}',
+          arabicText: item.arabic,
+          englishText: item.english,
+          amharicText: item.amharic,
+          repeatCount: item.count,
+          accentColor: const Color(0xFF8E7BFF),
+        );
+      },
     );
   }
 }
@@ -99,7 +61,7 @@ final List<AzkarItem> eveningAzkar = [
     arabic:
         "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ قُلْ هُوَ اللَّهُ أَحَدٌ اللَّهُ الصَّمَدُ لَمْ يَلِدْ وَلَمْ يُولَدْ وَلَمْ يَكُن لَهُ كُفُوًا أَحَدٌ",
     english: "Surah Al-Ikhlas",
-    amharic: "እክላስ",
+    amharic: "ሱረት እክላስ",
     count: 3,
   ),
 
@@ -108,7 +70,7 @@ final List<AzkarItem> eveningAzkar = [
     arabic:
         "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ مِن شَرِّ مَا خَلَقَ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ",
     english: "Surah Al-Falaq",
-    amharic: "ፈለቅ",
+    amharic: "ሱረት ፈለቅ",
     count: 3,
   ),
 
@@ -117,7 +79,7 @@ final List<AzkarItem> eveningAzkar = [
     arabic:
         "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ قُلْ أَعُوذُ بِرَبِّ النَّاسِ مَلِكِ النَّاسِ إِلَٰهِ النَّاسِ مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ مِنَ الْجِنَّةِ وَالنَّاسِ",
     english: "Surah An-Nas",
-    amharic: "ናስ",
+    amharic: "ሱረት ናስ",
     count: 3,
   ),
 

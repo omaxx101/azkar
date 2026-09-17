@@ -2,6 +2,7 @@ import 'package:azkar/screens/dua.dart';
 import 'package:flutter/material.dart';
 import 'morning.dart';
 import 'evening.dart';
+import '../widgets/azkar_ui.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,61 +10,101 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('አዝካር'),
-        centerTitle: true,
-      ),
+      body: SafeArea(
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final isWide = constraints.maxWidth >= 720;
+            final horizontalPadding = isWide ? 28.0 : 16.0;
+            final gridColumns = constraints.maxWidth >= 1100
+                ? 3
+                : constraints.maxWidth >= 720
+                    ? 2
+                    : 1;
+            final heroWidth = constraints.maxWidth >= 900 ? 860.0 : double.infinity;
 
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            _buildCard(
-              context,
-              title: 'Morning Azkar የጠዋት አዝካር',
-              icon: Icons.wb_sunny,
-              color: Colors.yellow,
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => const MorningAzkarScreen(),
-                  ),
-                );
-              },
-            ),
-
-            const SizedBox(height: 16),
-
-            _buildCard(
-              context,
-              title: 'Evening Azkar የምሽት አዝካር',
-              icon: Icons.nights_stay,
-              color: Colors.purple,
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => const EveningAzkarScreen(),
-                  ),
-                );
-              },
-            ),
-            _buildCard(
-              context,
-              title: ' Dua ዱአ',
-              icon: Icons.mosque,
-              color: Colors.white,
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => const DuaScreen(),
-                  ),
-                );
-              },
-            ),
-          ],
+            return Center(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: heroWidth),
+                child: CustomScrollView(
+                  slivers: [
+                    SliverToBoxAdapter(
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(
+                          horizontalPadding,
+                          24,
+                          horizontalPadding,
+                          20,
+                        ),
+                        child: _HomeHero(),
+                      ),
+                    ),
+                    SliverPadding(
+                      padding: EdgeInsets.fromLTRB(
+                        horizontalPadding,
+                        0,
+                        horizontalPadding,
+                        28,
+                      ),
+                      sliver: SliverGrid(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: gridColumns,
+                          mainAxisExtent: constraints.maxWidth >= 720 ? 220 : 190,
+                          crossAxisSpacing: 14,
+                          mainAxisSpacing: 14,
+                        ),
+                        delegate: SliverChildListDelegate.fixed(
+                          [
+                            AzkarHomeTile(
+                              title: 'Morning Azkar • የጠዋት አዝካር',
+                              subtitle: '',
+                              icon: Icons.wb_sunny_rounded,
+                              accentColor: Colors.yellow.shade700,
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => const MorningAzkarScreen(),
+                                  ),
+                                );
+                              },
+                            ),
+                            AzkarHomeTile(
+                              title: 'Evening Azkar • የማታ አዝካር',
+                              subtitle: '',
+                              icon: Icons.nights_stay_rounded,
+                              accentColor: const Color(0xFF8E7BFF),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => const EveningAzkarScreen(),
+                                  ),
+                                );
+                              },
+                            ),
+                            AzkarHomeTile(
+                              title: 'Dua • ዱዓ',
+                              subtitle: '',
+                              icon: Icons.mosque_rounded,
+                              accentColor: const Color(0xFF8AD8B5),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => const DuaScreen(),
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
         ),
       ),
     );
