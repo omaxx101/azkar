@@ -15,12 +15,15 @@ class HomeScreen extends StatelessWidget {
           builder: (context, constraints) {
             final isWide = constraints.maxWidth >= 720;
             final horizontalPadding = isWide ? 28.0 : 16.0;
+
             final gridColumns = constraints.maxWidth >= 1100
                 ? 3
                 : constraints.maxWidth >= 720
                     ? 2
                     : 1;
-            final heroWidth = constraints.maxWidth >= 900 ? 860.0 : double.infinity;
+
+            final heroWidth =
+                constraints.maxWidth >= 900 ? 860.0 : double.infinity;
 
             return Center(
               child: ConstrainedBox(
@@ -35,9 +38,10 @@ class HomeScreen extends StatelessWidget {
                           horizontalPadding,
                           20,
                         ),
-                        child: _HomeHero(),
+                        child: const _HomeHero(),
                       ),
                     ),
+
                     SliverPadding(
                       padding: EdgeInsets.fromLTRB(
                         horizontalPadding,
@@ -46,9 +50,11 @@ class HomeScreen extends StatelessWidget {
                         28,
                       ),
                       sliver: SliverGrid(
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate:
+                            SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: gridColumns,
-                          mainAxisExtent: constraints.maxWidth >= 720 ? 220 : 190,
+                          mainAxisExtent:
+                              constraints.maxWidth >= 720 ? 220 : 190,
                           crossAxisSpacing: 14,
                           mainAxisSpacing: 14,
                         ),
@@ -63,11 +69,13 @@ class HomeScreen extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (_) => const MorningAzkarScreen(),
+                                    builder: (_) =>
+                                        const MorningAzkarScreen(),
                                   ),
                                 );
                               },
                             ),
+
                             AzkarHomeTile(
                               title: 'Evening Azkar • የማታ አዝካር',
                               subtitle: '',
@@ -77,11 +85,13 @@ class HomeScreen extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (_) => const EveningAzkarScreen(),
+                                    builder: (_) =>
+                                        const EveningAzkarScreen(),
                                   ),
                                 );
                               },
                             ),
+
                             AzkarHomeTile(
                               title: 'Dua • ዱዓ',
                               subtitle: '',
@@ -109,40 +119,84 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _buildCard(
-    BuildContext context, {
-    required String title,
-    required IconData icon,
-    required Color color,
-    required VoidCallback onTap,
-  }) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(16),
-      onTap: onTap,
-      child: Container(
-        width: double.infinity,
-        height: 200,
-        decoration: BoxDecoration(
-          color: color.withValues(alpha: 0.12),
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: color.withValues(alpha: 0.4)),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, size: 60, color: color),
-            const SizedBox(height: 12),
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-                color: color,
-              ),
-            ),
+class _HomeHero extends StatelessWidget {
+  const _HomeHero();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(24),
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Color(0xFF18221D),
+            Color(0xFF10151D),
           ],
         ),
+        border: Border.all(
+          color: Color(0xFF2C3A32),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 52,
+                height: 52,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF8AD8B5).withValues(alpha: 0.15),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: const Icon(
+                  Icons.auto_awesome_rounded,
+                  color: Color(0xFF8AD8B5),
+                  size: 28,
+                ),
+              ),
+              const SizedBox(width: 14),
+              const Expanded(
+                child: Text(
+                  'Azkar',
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+          const SizedBox(height: 18),
+
+          const Text(
+            'Remember Allah throughout your day.',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              color: Colors.white,
+            ),
+          ),
+
+          const SizedBox(height: 8),
+
+          Text(
+            'Morning, evening, and daily duas in one simple place.',
+            style: TextStyle(
+              fontSize: 14,
+              height: 1.5,
+              color: Colors.white.withValues(alpha: 0.65),
+            ),
+          ),
+        ],
       ),
     );
   }

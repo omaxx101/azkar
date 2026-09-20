@@ -1,26 +1,16 @@
+
 import 'package:flutter_test/flutter_test.dart';
-import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:azkar/main.dart';
-import 'package:azkar/providers/adhkar_provider.dart';
+import 'package:azkar/app.dart';
 
 void main() {
-  testWidgets('shows the Morning Adhkar home screen', (tester) async {
-    SharedPreferences.setMockInitialValues(<String, Object>{});
-
-    final provider = AdhkarProvider();
-    await provider.load();
-
-    await tester.pumpWidget(
-      ChangeNotifierProvider.value(
-        value: provider,
-        child: const AzkarApp(),
-      ),
-    );
+  testWidgets('shows the Azkar home screen', (tester) async {
+    await tester.pumpWidget(const AzkarApp());
 
     await tester.pumpAndSettle();
 
-    expect(find.text('የጠዋት አዝካር'), findsOneWidget);
-    expect(find.text('Ayat al-Kursi'), findsOneWidget);
+    expect(find.textContaining('Morning Azkar'), findsOneWidget);
+    expect(find.textContaining('Evening Azkar'), findsOneWidget);
+    expect(find.textContaining('Dua'), findsOneWidget);
   });
 }
+

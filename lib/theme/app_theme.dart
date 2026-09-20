@@ -21,7 +21,6 @@ class AppTheme {
         onSecondary: Colors.black,
         onTertiary: Colors.black,
         onSurface: Colors.white,
-        background: background,
         error: Color(0xFFFF7D7D),
       ),
       scaffoldBackgroundColor: background,
@@ -60,9 +59,9 @@ class AppTheme {
       ),
       chipTheme: ChipThemeData(
         backgroundColor: const Color(0xFF16362D),
-        selectedColor: gold.withOpacity(0.2),
+        selectedColor: gold.withValues(alpha: 0.2),
         labelStyle: const TextStyle(color: Colors.white),
-        side: BorderSide(color: Colors.white.withOpacity(0.08)),
+        side: BorderSide(color: Colors.white.withValues(alpha: 0.08)),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(999)),
       ),
     );
